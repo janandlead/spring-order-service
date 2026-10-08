@@ -4,17 +4,6 @@
 
 The Order Service owns the order lifecycle and its PostgreSQL data. It does not own product catalog data or inventory data. Product and inventory operations are performed through the existing Product Service using Spring Cloud OpenFeign.
 
-This phase intentionally excludes:
-
-- JWT authentication and authorization
-- Eureka service discovery
-- correlation IDs
-- Docker
-- Micrometer and OpenTelemetry
-- Spring Cloud Config Server
-- payment processing
-- Kafka, Saga orchestration, and notifications
-
 Orders stop at `INVENTORY_RESERVED`. A later payment phase can extend the lifecycle to `PAYMENT_PENDING` and `CONFIRMED`.
 
 ## 2. Runtime topology
